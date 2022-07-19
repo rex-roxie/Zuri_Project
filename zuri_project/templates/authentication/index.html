@@ -6,7 +6,9 @@ Home
 {% block content %}
 {% if user.is_authenticated %}
 <h1>Welcome {{request.user}}</h1>
+<a href='logout'>Logout</a>
 {% else %}
 <h1>Sign in today</h1>
+<a href='login'>Login Here</a>
 {% endif %}
 {% endblock %}
