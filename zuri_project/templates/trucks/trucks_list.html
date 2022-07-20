@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Truck List
+{% endblock %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+
+<h1>Truck List</h1>
+<br>
+<hr>
+{% for truck in trucks%}
+    <br>
+    <a href="{% url 'truck_info' truck.id %}">{{truck.first_name}}</a>
+    <p>{{truck.first_name}}</p>
+    <br>
+    <hr>
+{% endfor %}
+{% endblock %}

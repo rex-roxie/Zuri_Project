@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from authentication.views import index
 from drivers.views import driver_info, drivers_list
+from trucks.views import truck_info, trucks_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,6 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('drivers', drivers_list),
     path('driver/<driver_id>', driver_info, name='driver_info'),
+    path('trucks', trucks_list),
+    path('truck/<truck_id>', truck_info, name='truck_info'),
 ]
