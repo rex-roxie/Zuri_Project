@@ -19,6 +19,7 @@ from authentication.views import index
 from drivers.views import driver_info, drivers_list
 from trucks.views import truck_info, trucks_list
 from trailors.views import trailor_info, trailors_list
+from loads.views import load_info, loads_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,6 @@ urlpatterns = [
     path('truck/<truck_id>', truck_info, name='truck_info'),
     path('trailors', trailors_list),
     path('trailor/<trailor_id>', trailor_info, name='trailor_info'),
+    path('loads', loads_list),
+    path('load/<load_id>', load_info, name='load_info'),
 ]

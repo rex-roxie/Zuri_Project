@@ -16,8 +16,8 @@ Truck List
 <hr>
 {% for truck in trucks%}
     <br>
-    <a href="{% url 'truck_info' truck.id %}">{{truck.first_name}}</a>
-    <p>{{truck.first_name}}</p>
+    <a href="{% url 'truck_info' truck.id %}">{{truck.truck_number}}</a>
+    <p>{{truck.truck_number}}</p>
     <br>
     <hr>
 {% endfor %}
