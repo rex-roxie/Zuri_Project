@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Trailor List
+{% endblock %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+
+<h1>Trailor List</h1>
+<br>
+<hr>
+{% for trailor in trailors%}
+    <br>
+    <a href="{% url 'trailor_info' trailor.id %}">{{trailor.first_name}}</a>
+    <p>{{trailor.first_name}}</p>
+    <br>
+    <hr>
+{% endfor %}
+{% endblock %}
