@@ -23,3 +23,6 @@ class Driver(models.Model):
     driver_license_numbers = models.CharField(max_length=50)
     driver_license_expiry_date = models.DateField(auto_now=False, auto_now_add=False, blank=True)
     certification = models.CharField(max_length=50, choices=certification_options)
+
+    def __str__(self):
+        return self.first_name

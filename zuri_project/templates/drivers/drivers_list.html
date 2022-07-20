@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Drivers List
+{% endblock %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+
+<h1>Drivers List</h1>
+<br>
+<hr>
+{% for driver in drivers%}
+    <br>
+    <a href="{% url 'driver_info' driver.id %}">{{driver.first_name}}</a>
+    <p>{{driver.first_name}}</p>
+    <br>
+    <hr>
+{% endfor %}
+{% endblock %}

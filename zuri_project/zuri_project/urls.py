@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from authentication.views import index
+from drivers.views import driver_info, drivers_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
-    path('', include('django.contrib.auth.urls'))
+    path('', include('django.contrib.auth.urls')),
+    path('drivers', drivers_list),
+    path('driver/<driver_id>', driver_info, name='driver_info'),
 ]
