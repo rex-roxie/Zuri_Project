@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from authentication.views import index
-from drivers.views import driver_info, drivers_list
+from drivers.views import driver_info, drivers_list, add_driver
 from trucks.views import truck_info, trucks_list
 from trailors.views import trailor_info, trailors_list
 from loads.views import load_info, loads_list
@@ -25,12 +25,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('', include('django.contrib.auth.urls')),
-    path('drivers', drivers_list),
+    path('drivers/', drivers_list, name="drivers"),
     path('driver/<driver_id>', driver_info, name='driver_info'),
-    path('trucks', trucks_list),
-    path('truck/<truck_id>', truck_info, name='truck_info'),
-    path('trailors', trailors_list),
-    path('trailor/<trailor_id>', trailor_info, name='trailor_info'),
-    path('loads', loads_list),
-    path('load/<load_id>', load_info, name='load_info'),
+    path('drivers/add-driver', add_driver, name='add_driver'),
+    path('trucks/', trucks_list),
+    path('trucks/<truck_id>', truck_info, name='truck_info'),
+    path('trailors/', trailors_list),
+    path('trailors/<trailor_id>', trailor_info, name='trailor_info'),
+    path('loads/', loads_list),
+    path('loads/<load_id>', load_info, name='load_info'),
 ]
