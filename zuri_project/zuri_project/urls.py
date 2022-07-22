@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from authentication.views import index
-from drivers.views import driver_info, drivers_list, add_driver
+from drivers.views import driver_info, drivers_list, add_driver, delete_driver
 from trucks.views import truck_info, trucks_list
 from trailors.views import trailor_info, trailors_list
 from loads.views import load_info, loads_list
@@ -28,6 +28,7 @@ urlpatterns = [
     path('drivers/', drivers_list, name="drivers"),
     path('driver/<driver_id>', driver_info, name='driver_info'),
     path('drivers/add-driver', add_driver, name='add_driver'),
+    path('drivers/delete-driver', delete_driver, name='delete_driver'),
     path('trucks/', trucks_list),
     path('trucks/<truck_id>', truck_info, name='truck_info'),
     path('trailors/', trailors_list),

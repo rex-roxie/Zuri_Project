@@ -1,10 +1,7 @@
-from audioop import add
-from hashlib import new
-from lib2to3.pgen2.driver import Driver
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Driver
 from django.contrib.auth.decorators import login_required
-from .forms import SearchDriverForm, AddDriverForm
+from .forms import SearchDriverForm, AddDriverForm, DeleteDriverForm
 
 # Create your views here.
 @login_required
@@ -47,6 +44,21 @@ def add_driver(request):
             new_driver.save()
            
     return render(request, 'drivers/add_driver.html', {'form': form})
+
+def delete_driver(request):
+
+    form = DeleteDriverForm()
+
+    if request.method == "POST":
+        form = DeleteDriverForm(request.POST)
+
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            new_driver = get_object_or_404(Driver, first_name=first_name)
+            new_driver.delete()
+            return redirect('/')
+           
+    return render(request, 'drivers/delete_driver.html', {'form': form})
 
 @login_required
 def deleted_driver_successfully(request):
