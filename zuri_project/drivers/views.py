@@ -69,7 +69,3 @@ def delete_driver(request):
             return redirect('/')
            
     return render(request, 'drivers/delete_driver.html', {'form': form})
-
-@login_required
-def deleted_driver_successfully(request):
-    return render(request, 'drivers/delete_driver_success.html', {})
