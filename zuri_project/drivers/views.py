@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from .models import Driver
 from django.contrib.auth.decorators import login_required
 from .forms import SearchDriverForm, AddDriverForm, DeleteDriverForm
+from django import forms
 
 # Create your views here.
 @login_required
@@ -39,11 +40,20 @@ def add_driver(request):
         form = AddDriverForm(request.POST)
 
         if form.is_valid():
-            new_driver = form.save()
-            new_driver = Driver.objects.create(new_driver)
-            new_driver.save()
-           
-    return render(request, 'drivers/add_driver.html', {'form': form})
+            email = form.cleaned_data['email']
+
+            new_driver = get_list_or_404(Driver, email=email)
+
+            if new_driver is None:
+                new_driver = Driver.objects.create(new_driver)
+                new_driver.save()
+                print(new_driver)
+            
+            else:
+                form = AddDriverForm()
+                error = "There is a user with this email already, please try again."
+
+    return render(request, 'drivers/add_driver.html', {'form': form, 'error': error})
 
 def delete_driver(request):
 
