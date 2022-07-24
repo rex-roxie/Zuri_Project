@@ -35,6 +35,7 @@ def driver_info(request, driver_id):
 def add_driver(request):
 
     form = AddDriverForm()
+    error=""
 
     if request.method == "POST":
         form = AddDriverForm(request.POST)

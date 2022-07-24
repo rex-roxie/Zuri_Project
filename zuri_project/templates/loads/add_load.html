@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Load
+{% endblock %}
+{% block content %}
+
+<h1>Add load</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+
+<p>{{error}}</p>
+{% endblock %}
