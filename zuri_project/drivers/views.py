@@ -48,7 +48,7 @@ def add_driver(request):
             if new_driver is None:
                 new_driver = Driver.objects.create(new_driver)
                 new_driver.save()
-                print(new_driver)
+                return redirect("{% url 'drivers' %}")
             
             else:
                 form = AddDriverForm()
@@ -64,9 +64,15 @@ def delete_driver(request):
         form = DeleteDriverForm(request.POST)
 
         if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            new_driver = get_object_or_404(Driver, first_name=first_name)
-            new_driver.delete()
-            return redirect('/')
+            phone = form.cleaned_data['phone']
+
+            if Driver.objects.filter(phone=phone).exists() == True:
+                new_driver = get_object_or_404(Driver, phone=phone)
+                new_driver.delete()
+                return redirect("{% url 'drivers' %}")
+
+            else:
+                form = DeleteDriverForm()
+                error = "There is no driver that matches this phone number, please try again."
            
     return render(request, 'drivers/delete_driver.html', {'form': form})

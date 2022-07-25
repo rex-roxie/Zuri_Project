@@ -30,7 +30,7 @@ def loads_list(request):
 
 @login_required
 def load_info(request, load_id):
-    load = load.objects.get(pk=load_id)
+    load = Load.objects.get(pk=load_id)
     return render(request, 'loads/load_info.html', {'load':load})
 
 @login_required
@@ -47,9 +47,8 @@ def add_load(request):
             driver_assigned = form.cleaned_data['driver_assigned_to']
 
             if Load.objects.filter(load_number=load_number).exists() != True and Driver.objects.filter(first_name=driver_assigned).exists():
-                new_load = Load.objects.create(new_load)
-                new_load.save()
-                print(new_load)
+                form.save()
+                return redirect('/')
 
             if Load.objects.filter(load_number=load_number).exists() and Driver.objects.filter(first_name=driver_assigned).exists():
                 form = AddLoadForm()
@@ -82,7 +81,7 @@ def delete_load(request):
                 delete_load.delete()
                 return redirect('/')
 
-            if Load.objects.filter(load_number=load_number).exists() != True:
+            else:
                 form = DeleteLoadForm()
                 error = "There is no load that matches this load number, please try again."
            
