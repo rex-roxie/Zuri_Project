@@ -69,14 +69,21 @@ def add_load(request):
 def delete_load(request):
 
     form = DeleteLoadForm()
+    error = ''
 
     if request.method == "POST":
         form = DeleteLoadForm(request.POST)
 
         if form.is_valid():
             load_number = form.cleaned_data['load_number']
-            delete_load = get_object_or_404(Load, load_number=load_number)
-            delete_load.delete()
-            return redirect('/')
+
+            if Load.objects.filter(load_number=load_number).exists() == True:
+                delete_load = get_object_or_404(Load, load_number=load_number)
+                delete_load.delete()
+                return redirect('/')
+
+            if Load.objects.filter(load_number=load_number).exists() != True:
+                form = DeleteLoadForm()
+                error = "There is no load that matches this load number, please try again."
            
-    return render(request, 'loads/delete_load.html', {'form': form})
+    return render(request, 'loads/delete_load.html', {'form': form, 'error': error})

@@ -10,9 +10,9 @@
     <nav>
         <a href="/">Dashboard</a>
         <a href="{% url 'drivers' %}">Drivers List</a>
-        <a href="trucks">Trucks</a>
-        <a href="trailors">Trailors</a>
-        <a href="loads">Loads</a>
+        <a href="{% url 'trucks' %}">Trucks</a>
+        <a href="{% url 'trailors' %}">Trailors</a>
+        <a href="{% url 'loads' %}">Loads</a>
     </nav>
     {% block content %}
     {% endblock %}
