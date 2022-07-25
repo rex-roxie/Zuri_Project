@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Trailor
+{% endblock %}
+{% block content %}
+
+<h1>Add trailor</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+
+<p>{{error}}</p>
+{% endblock %}
