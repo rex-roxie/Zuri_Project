@@ -11,4 +11,4 @@ class Trailor(models.Model):
     inspection_expiry_date = models.DateField(auto_now=False, auto_now_add=False, blank=True)
     vin_number = models.CharField(max_length=50, default=None)
     manufacturer_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, default=None)
-    vented = models.BooleanField(default=None)
+    vented = models.BooleanField(default=False)
