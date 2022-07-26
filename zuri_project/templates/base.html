@@ -8,11 +8,27 @@
 </head>
 <body>
     <nav>
-        <a href="/">Dashboard</a>
+        <a href="{% url 'dashboard' %}">Dashboard</a>
         <a href="{% url 'drivers' %}">Drivers List</a>
+        <div id="drivers_links">
+            <a href="{% url 'add_driver' %}">Add Driver</a>
+            <a href="{% url 'delete_driver' %}">Delete Driver</a>
+        </div>
         <a href="{% url 'trucks' %}">Trucks</a>
+        <div id="trucks_links">
+            <a href="{% url 'add_truck' %}">Add Truck</a>
+            <a href="{% url 'delete_truck' %}">Delete Truck</a>
+        </div>
         <a href="{% url 'trailors' %}">Trailors</a>
+        <div id="trailors_links">
+            <a href="{% url 'add_trailor' %}">Add Trailor</a>
+            <a href="{% url 'delete_trailor' %}">Delete Trailor</a>
+        </div>
         <a href="{% url 'loads' %}">Loads</a>
+        <div id="loads_links">
+            <a href="{% url 'add_load' %}">Add Load</a>
+            <a href="{% url 'delete_load' %}">Delete Load</a>
+        </div>
     </nav>
     {% block content %}
     {% endblock %}
