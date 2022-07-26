@@ -43,12 +43,9 @@ def add_driver(request):
         if form.is_valid():
             email = form.cleaned_data['email']
 
-            new_driver = get_list_or_404(Driver, email=email)
-
-            if new_driver is None:
-                new_driver = Driver.objects.create(new_driver)
-                new_driver.save()
-                return redirect("{% url 'drivers' %}")
+            if Driver.objects.filter(email=email).exists() != True:
+                form.save()
+                return redirect("/drivers/")
             
             else:
                 form = AddDriverForm()
@@ -69,7 +66,7 @@ def delete_driver(request):
             if Driver.objects.filter(phone=phone).exists() == True:
                 new_driver = get_object_or_404(Driver, phone=phone)
                 new_driver.delete()
-                return redirect("{% url 'drivers' %}")
+                return redirect('/drivers/')
 
             else:
                 form = DeleteDriverForm()

@@ -3,6 +3,7 @@ from .models import Truck
 from drivers.models import Driver
 from django.contrib.auth.decorators import login_required
 from .forms import SearchTruckForm, AddTruckForm, DeleteTruckForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 @login_required
@@ -46,6 +47,7 @@ def add_truck(request):
 
             if Truck.objects.filter(truck_number=truck_number).exists() != True and Driver.objects.filter(first_name=driver_assigned).exists():
                 form.save()
+                return redirect('/trucks/')
 
             if Truck.objects.filter(truck_number=truck_number).exists() and Driver.objects.filter(first_name=driver_assigned).exists():
                 form = AddTruckForm()
@@ -76,7 +78,7 @@ def delete_truck(request):
             if Truck.objects.filter(truck_number=truck_number).exists() == True:
                 delete_truck = get_object_or_404(Truck, truck_number=truck_number)
                 delete_truck.delete()
-                return redirect('/')
+                return redirect('/trucks/')
 
             if Truck.objects.filter(truck_number=truck_number).exists() != True:
                 form = DeleteTruckForm()

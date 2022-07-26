@@ -16,8 +16,7 @@ Load List
 <hr>
 {% for load in loads%}
     <br>
-    <a href="{% url 'load_info' load.id %}">{{load.load_number}}</a>
-    <p>{{load.load_number}}</p>
+    <p><a href="{% url 'load_info' load.id %}">{{load.load_number}}</a> | {{load.driver_assigned_to}}</p>
     <br>
     <hr>
 {% endfor %}

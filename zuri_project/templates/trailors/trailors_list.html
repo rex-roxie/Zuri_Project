@@ -16,8 +16,7 @@ Trailor List
 <hr>
 {% for trailor in trailors%}
     <br>
-    <a href="{% url 'trailor_info' trailor.id %}">{{trailor.trailor_number}}</a>
-    <p>{{trailor.trailor_number}}</p>
+    <p><a href="{% url 'trailor_info' trailor.id %}">{{trailor.trailor_number}}</a> | {{trailor.driver_assigned_to}}</p>
     <br>
     <hr>
 {% endfor %}

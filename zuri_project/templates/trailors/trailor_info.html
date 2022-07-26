@@ -5,5 +5,16 @@
 {% endblock %}
 {% block content %}
 <h1>{{trailor.trailor_number}}</h1>
-<p>{{trailors}}</p>
+<p>Driver Assigned: {{trailor.driver_assigned_to}}</p>
+<p>Current Registration Date: {{trailor.registration_current_date}}</p>
+<p>Registration Expiry Date: {{trailor.registration_expiry_date}}</p>
+<p>Current Inspection Date: {{trailor.inspection_current_date}}</p>
+<p>Inspection Expiry Date: {{trailor.inspection_expiry_date}}</p>
+<p>Vin Number: {{trailor.vin_number}}</p>
+<p>Manufacturer Date: {{trailor.manufacturer_date}}</p>
+{% if trailor.vented == True %}
+    <p>Vented: Truck is vented</p>
+{% else %}
+    <p>Vented: Truck is not vented</p>
+{% endif %}
 {% endblock %}

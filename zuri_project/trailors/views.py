@@ -46,6 +46,7 @@ def add_trailor(request):
 
             if Trailor.objects.filter(trailor_number=trailor_number).exists() != True and Driver.objects.filter(first_name=driver_assigned).exists():
                 form.save()
+                return redirect('/trailors/')
 
             if Trailor.objects.filter(trailor_number=trailor_number).exists() and Driver.objects.filter(first_name=driver_assigned).exists():
                 form = AddTrailorForm()
@@ -76,7 +77,7 @@ def delete_trailor(request):
             if Trailor.objects.filter(trailor_number=trailor_number).exists() == True:
                 delete_trailor = get_object_or_404(Trailor, trailor_number=trailor_number)
                 delete_trailor.delete()
-                return redirect('/')
+                return redirect('/trailors/')
 
             if Trailor.objects.filter(trailor_number=trailor_number).exists() != True:
                 form = DeleteTrailorForm()

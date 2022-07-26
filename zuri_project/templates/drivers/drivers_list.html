@@ -16,8 +16,7 @@ Drivers List
 <hr>
 {% for driver in drivers%}
     <br>
-    <a href="{% url 'driver_info' driver.id %}">{{driver.first_name}}</a>
-    <p>{{driver.first_name}}</p>
+    <p><a href="{% url 'driver_info' driver.id %}">{{driver.first_name}}</a> | {{driver.email}}</p>
     <br>
     <hr>
 {% endfor %}

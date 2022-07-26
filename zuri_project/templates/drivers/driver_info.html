@@ -4,6 +4,14 @@
 {{driver.first_name}}
 {% endblock %}
 {% block content %}
-<h1>{{driver.first_name}}</h1>
-<p>{{drivers}}</p>
+<h1>{{driver.first_name}} {{driver.last_name}}</h1>
+<p>Email: {{driver.email}}</p>
+<p>Phone Number: {{driver.phone}}</p>
+<p>Medical Card Number: {{driver.medical_card_number}}</p>
+<p>Medical Card Expiry Date: {{driver.medical_card_expiry_date}}</p>
+<p>Truck Number: {{driver.truck_number}}</p>
+<p>Driver License Numbers: {{driver.driver_license_numbers}}</p>
+<p>Driver License Expiry Date: {{driver.driver_license_expiry_date}}</p>
+<p>Certification: {{driver.certification}}</p>
+<p>Citizenship: {{driver.citizenship}}</p>
 {% endblock %}

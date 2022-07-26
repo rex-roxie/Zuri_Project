@@ -48,7 +48,7 @@ def add_load(request):
 
             if Load.objects.filter(load_number=load_number).exists() != True and Driver.objects.filter(first_name=driver_assigned).exists():
                 form.save()
-                return redirect('/')
+                return redirect('/loads/')
 
             if Load.objects.filter(load_number=load_number).exists() and Driver.objects.filter(first_name=driver_assigned).exists():
                 form = AddLoadForm()
@@ -79,7 +79,7 @@ def delete_load(request):
             if Load.objects.filter(load_number=load_number).exists() == True:
                 delete_load = get_object_or_404(Load, load_number=load_number)
                 delete_load.delete()
-                return redirect('/')
+                return redirect('/loads/')
 
             else:
                 form = DeleteLoadForm()
