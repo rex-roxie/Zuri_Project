@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    
+    NAVBAR 
+
+*/
+
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+nav {
+    width: 20%;
+    height: 100%;
+    background-color: red;
+    position: fixed;
+    animation: 2s linear slideleft;
+}
+
+nav ul {
+    width: 100%;
+}
+
+nav ul a {
+    display: block;
+    width: 75%;
+    color: white;
+    text-decoration: none;
+    padding: 5%;
+    padding-left: 10%;
+    font-size: 1.2rem;
+    border-radius: 1%;
+    margin-top: 1%;
+}
+
+nav ul a:hover {
+    background-color: black;
+}
+
+nav li {
+    list-style: none;
+    width: 100%;
+    margin-left: 5%;
+}
+
+nav h3 {
+    padding: 10%;
+    color: white;
+    font-size: 0.9rem;
+    background-color: red;
+    margin-left: 5%;
+    line-height: 1.5rem;
+    margin-bottom: 10%;
+}
+
+.dropdown {
+    position: absolute;
+    display: none;
+    background-color: black;
+    margin-left: 95%;
+    margin-top: -20%;
+    padding-left: 0;
+    width: 90%;
+}
+
+.dropdown a {
+    width: 70%;
+    margin: 1%;
+    border-radius: 1%;
+}
+
+.dropdown a:hover {
+    background-color: red;
+}
+
+.big-li:hover .dropdown {
+    display: block;
+}
+
+/* @keyframes slideleft {
+    0%   {width: 0;}
+    25%  {width: 5%;}
+    50%  {width: 10%;}
+    100% {width: 15%;}
+  } */
+
+main {
+    margin-left: 20%;
+}
+
+/* @keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+} */
+
+@keyframes fadeIn {
+    0% { display: none;}
+    100% { display: block;}
+}
+
+/*
+    
+    NAVBAR 
+
+*/
