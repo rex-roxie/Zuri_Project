@@ -5,10 +5,10 @@ Truck List
 {% endblock %}
 {% block content %}
 
-<form method="POST" action="">
+<form method="POST" action="" class="search-bar">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit">
+    <input type="text" name="search" maxlength="50" id="id_search" placeholder="Search Truck" class="id_search">
+    <button type="submit" class="submit_search"><i class="fa-solid fa-magnifying-glass"></i></button>
 </form>
 
 <h1>Truck List</h1>

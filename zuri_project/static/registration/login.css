@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.login_space {
+    width: 25%;
+    height: 60%;
+    background-color: navy;
+    padding: 1%;
+    border-radius: 2%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 8%;
+    margin-top: 10%;
+}
+
+#id_password, #id_username, #submit {
+    font-size: 0.8rem;
+    padding: 5%;
+    border: none;
+    outline: none;
+    border-radius: 2%;
+    margin-top: 5%;
+}
+
+#submit {
+    margin-top: 10% !important;
+}
+
+#submit:hover {
+    cursor: pointer;
+}
+
+h1 {
+    padding-left: 7%;
+    padding-top: 10%;
+}
