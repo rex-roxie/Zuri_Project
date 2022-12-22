@@ -37,6 +37,7 @@ form {
     outline: none;
     border-radius: 2%;
     margin-top: 5%;
+    font-weight: bold;
 }
 
 #submit {

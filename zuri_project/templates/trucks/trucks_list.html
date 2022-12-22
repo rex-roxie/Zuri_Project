@@ -15,10 +15,7 @@ Truck List
 <br>
 <hr>
 {% for truck in trucks%}
-    <br>
-    <a href="{% url 'truck_info' truck.id %}">{{truck.truck_number}}</a>
-    <p>{{truck.truck_number}}</p>
-    <br>
+    <a href="{% url 'truck_info' truck.id %}" class="infolink"><p>{{truck.truck_number}} | {{truck.driver_assigned_to}}</p></a>
     <hr>
 {% endfor %}
 {% endblock %}

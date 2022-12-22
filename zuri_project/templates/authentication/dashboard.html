@@ -5,5 +5,55 @@ Home
 {% endblock %}
 {% block content %}
 <h1>Welcome {{request.user}}</h1>
-<h2>What's New</h2>
+<div class="counts">
+    <div class="count">
+        <h2>{{driver_count}}</h2>
+        <h4>Driver Count</h4>
+    </div>
+    <div class="count">
+        <h2>{{truck_count}}</h2>
+        <h4>Truck Count</h4>
+    </div>
+    <div class="count">
+        <h2>{{trailor_count}}</h2>
+        <h4>Trailor Count</h4>
+    </div>
+    <div class="count">
+        <h2>{{load_count}}</h2>
+        <h4>Load Count</h4>
+    </div>
+</div>
+<div id="dashboard_lists">
+    <h2> Recent Activity </h2>
+    <h2>Truck List</h2>
+    <br>
+    <hr>
+    {% for truck in truck_list%}
+        <a href="{% url 'truck_info' truck.id %}" class="infolink"><p>{{truck.truck_number}} | {{truck.driver_assigned_to}}</p></a>
+        <hr>
+    {% endfor %}
+    <h2>Drivers List</h2>
+    <br>
+    <hr>
+    {% for driver in driver_list%}
+        <a href="{% url 'driver_info' driver.id %}" class="infolink"><p>{{driver.first_name}} | {{driver.email}}</p></a> 
+        <hr>
+    {% endfor %}
+    <h2>Trailor List</h2>
+    <br>
+    <hr>
+    {% for trailor in trailor_list%}
+        <a href="{% url 'trailor_info' trailor.id %}" class="infolink"><p>{{trailor.trailor_number}} | {{trailor.driver_assigned_to}}</p></a>
+        <hr>
+    {% endfor %}
+    <h2>Load List</h2>
+    <br>
+    <hr>
+    {% for load in load_list%}
+        <a href="{% url 'load_info' load.id %}" class="infolink"><p>{{load.load_number}} | {{load.driver_assigned_to}}</p></a>
+        <hr>
+    {% endfor %}
+</div>
+
+
 {% endblock %}

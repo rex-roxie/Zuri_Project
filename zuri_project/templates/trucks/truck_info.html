@@ -5,5 +5,10 @@
 {% endblock %}
 {% block content %}
 <h1>{{truck.truck_number}}</h1>
-<p>{{trucks}}</p>
+<p>Driver Assigned: {{truck.driver_assigned_to}}</p>
+<p>Current Registration Date: {{truck.registration_current_date}}</p>
+<p>Registration Expiry Date: {{truck.registration_expiry_date}}</p>
+<p>Current Inspection Date: {{truck.inspection_current_date}}</p>
+<p>Inspection Expiry Date: {{truck.inspection_expiry_date}}</p>
+<p>Vin Number: {{truck.vin_number}}</p>
 {% endblock %}

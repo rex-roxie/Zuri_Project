@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --nav-width: 5%;
+}
+
+/*
+    
+    NAVBAR 
+
+*/
+
+body {
+    width: 90vw;
+    font-family: 'Montserrat', sans-serif;
+    background-color: whitesmoke;
+    color: #3863c4;
+    scroll-behavior: smooth;
+    overflow-x: none;
+}
+
+nav {
+    width: var(--nav-width);
+    height: 100%;
+    background-color: navy;
+    position: fixed;
+    animation: 2s linear slideleft;
+    transition: linear 400ms width 200ms;
+}
+
+nav:hover {
+    --nav-width: 20%;
+    width: var(--nav-width);
+}
+
+nav:hover::after ul{
+    opacity: 1;
+    transition: ease-in 400ms opacity 500ms;
+}
+
+nav:hover ul {
+    opacity: 1;
+    transition: ease-in 400ms opacity 500ms;
+}
+
+nav ul {
+    width: 100%;
+    opacity: 0;
+    transition: ease-in 400ms opacity;
+}
+
+
+nav ul a {
+    display: block;
+    width: 60%;
+    color: white;
+    text-decoration: none;
+    padding: 5%;
+    padding-left: 20%;
+    font-size: 1.2rem;
+    border-radius: 1%;
+    margin-top: 1%;
+}
+
+nav ul a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+nav ul a:visited {
+    display: none;
+}
+
+nav i {
+    color: white;
+    font-size: 1rem;
+    padding-right: 5%;
+    position: absolute;
+    padding-left: 25%;
+    opacity: 1;
+    transition: ease-in 400ms padding-left 500ms;
+}
+
+nav:hover i {
+    color: white;
+    font-size: 1rem;
+    padding-right: 5%;
+    position: absolute;
+    padding-left: 10%;
+    opacity: 1;
+}
+
+.fa-house-chimney {
+    top: 27.3%;
+}
+
+.fa-id-card {
+    top: 35.8%;
+}
+
+.fa-caravan {
+    top: 44%;
+}
+
+.fa-truck-ramp-box {
+    top: 52.5%;
+}
+
+.fa-truck {
+    top: 61%;
+}
+
+.fa-arrow-right-from-bracket {
+    top: 69%;
+    padding-left: 27%;
+}
+
+nav li {
+    list-style: none;
+    width: 100%;
+    margin-left: 5%;
+}
+
+nav h3 {
+    padding: 10%;
+    color: white;
+    font-size: 0.9rem;
+    background-color: navy;
+    margin-left: 5%;
+    line-height: 1.5rem;
+    margin-bottom: 10%;
+    opacity: 0;
+    transition: ease-in 400ms opacity;
+}
+
+nav:hover h3 {
+    opacity: 1;
+    transition: ease-in 400ms opacity 500ms;
+}
+
+nav:hover::after h3{
+    opacity: 1;
+    transition: ease-in 400ms opacity 500ms;
+}
+
+
+.dropdown {
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin-left: 95%;
+    margin-top: -20%;
+    padding-left: 0;
+    width: 85%;
+    border-radius: 2%;
+}
+
+.dropdown a {
+    width: 70%;
+    margin: 5% 1%;
+    border-radius: 1%;
+    padding-left: 5%;
+}
+
+.dropdown a:hover {
+    background-color: #00CCA5;
+}
+
+.big-li:hover .dropdown {
+    display: block;
+}
+
+/* @keyframes slideleft {
+    0%   {width: 0;}
+    25%  {width: 5%;}
+    50%  {width: 10%;}
+    100% {width: 15%;}
+  } */
+
+main {
+    width: calc(90% - var(--nav-width));
+    margin-left: calc(5% + var(--nav-width));
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}
+
+/*
+    
+    NAVBAR 
+
+*/
+
+/*
+
+    DASHBOARD
+
+*/
+
+h1 {
+    font-size: 3rem;
+    text-transform: capitalize;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    padding-left: 4.5%;
+}
+
+#dashboard_lists {
+    width: 50%;
+    margin-left: 4%;
+}
+
+#dashboard_lists h2 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    padding-left: 4.5%;
+}
+
+.counts {
+    width: 100%;
+    height: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.count {
+    background-color: #00CCA5;
+    border-radius: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    margin: 1% 0.3%;
+    padding: 1%;
+}
+
+.count h4 {
+    margin-top: 5%;
+    font-size: 1rem;
+}
+
+.count h2 {
+    font-size: 1rem;
+}
+
+
+/*
+
+    DASHBOARD
+
+*/
+
+/*
+
+    LISTS
+
+*/
+
+.search-bar {
+    position: absolute;
+    left: 50%;
+    top: 13%;
+}
+
+.id_search {
+    padding: 2%;
+    font-size: 1.2rem;
+    width: 60%;
+    margin-left: 12%;
+}
+
+.submit_search {
+    font-size: 1.2rem;
+    background-color: #005EFF;
+    border: none;
+    border-radius: 10%;
+    padding: 2.6%;
+    width: 20%;
+    margin-left: 0;
+}
+
+.submit_search:hover {
+    cursor: pointer;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 2.8rem;
+    padding-left: 5%;
+}
+
+.info p {
+    
+}
+
+.infolink {
+    text-decoration: none;
+    color: #3863c4;
+    transition: linear 100ms color;
+}
+
+.infolink:hover {
+    color: black
+}
+
+.full-info {
+    width: 40%;
+    height: 80%;
+    background-color: blue;
+    margin-left: 30%;
+}
+
+/*
+
+    LISTS
+
+*/
+
+/* 
+
+    FORMS
+
+*/
+
+/*
+
+    FORMS
+
+*/

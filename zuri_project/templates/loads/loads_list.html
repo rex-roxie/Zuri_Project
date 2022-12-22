@@ -15,9 +15,7 @@ Load List
 <br>
 <hr>
 {% for load in loads%}
-    <br>
-    <p><a href="{% url 'load_info' load.id %}">{{load.load_number}}</a> | {{load.driver_assigned_to}}</p>
-    <br>
+    <a href="{% url 'load_info' load.id %}" class="infolink"><p>{{load.load_number}} | {{load.driver_assigned_to}}</p></a>
     <hr>
 {% endfor %}
 {% endblock %}
